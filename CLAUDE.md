@@ -15,20 +15,43 @@
 
 ```
 .claude/agents/
-├── agents/          # 90+ specialized agent definitions
-├── tools/           # 40+ reusable tool definitions
-├── workflows/       # 15+ multi-step workflow orchestrations
-├── examples/        # Usage examples
-├── CLAUDE.md        # This file - your safety guide
-└── README.md        # Public documentation
+├── .claude-plugin/           # Plugin marketplace configuration
+├── plugins/                  # 64 domain-focused plugin directories
+│   ├── backend-development/
+│   │   ├── agents/          # Domain-specific agents (backend-architect, graphql-architect, etc.)
+│   │   ├── commands/        # Slash commands and workflows
+│   │   └── skills/          # Auto-activating skills (api-design-principles, etc.)
+│   ├── python-development/
+│   │   ├── agents/          # Python-specific agents
+│   │   ├── commands/        # Python tooling commands
+│   │   └── skills/          # 5 Python skills (async-patterns, testing, packaging, etc.)
+│   └── [62 more plugins...]
+├── docs/                     # Documentation
+│   ├── agent-skills.md      # Complete skills catalog (47 skills)
+│   ├── agents.md            # Agent reference
+│   ├── architecture.md      # System design principles
+│   ├── plugins.md           # Plugin catalog
+│   └── usage.md             # Usage guide
+├── PRIORITY_AGENTS.md        # Quick reference: 14 priority agents with skill mappings
+├── WEBSITE-PRIORITY-AGENTS.md # Quick reference: 18 website agents with skill mappings
+├── CLAUDE.md                 # This file - your safety guide
+└── README.md                 # Public documentation
 ```
 
+**Key Numbers:**
+- 🔌 **64 plugins** organized by domain (backend, frontend, security, DevOps, languages, etc.)
+- 🤖 **146 specialized agents** distributed across plugins
+- 🎯 **47 auto-activating skills** in 15 plugins (progressive disclosure for token efficiency)
+- 📋 **44+ slash commands** for direct workflow invocation
+
 **Primary Edit Zones:**
-- ✅ `tools/` - Safe to add/modify reusable tools
-- ✅ `workflows/` - Safe to add/modify multi-step orchestrations  
-- ✅ `agents/` - Relatively safe to add new agents (avoid modifying existing without backup)
+- ✅ `plugins/*/agents/` - Safe to add new agents within appropriate domain plugin
+- ✅ `plugins/*/commands/` - Safe to add/modify slash commands and workflows
+- ✅ `plugins/*/skills/` - Safe to add skills (follow Agent Skills Specification)
+- ⚠️ `PRIORITY_AGENTS.md` / `WEBSITE-PRIORITY-AGENTS.md` - Update when adding priority agents
 - ⚠️ `CLAUDE.md` - This file - be thoughtful about changes
-- 🚫 Core configuration files - Don't touch without backup
+- ⚠️ `.claude-plugin/marketplace.json` - Plugin registry - modify carefully
+- 🚫 `docs/` - Generated documentation - modify only when structure changes
 
 ---
 

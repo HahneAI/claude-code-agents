@@ -1,14 +1,18 @@
 # Priority Agents Reference (Enhanced with Skills)
 
-This document provides quick access to the most frequently used agents for your development workflows. Each agent is listed with its purpose, key capabilities, **available skills**, and direct file path.
+This document provides quick access to the most frequently used agents for your development workflows. Each agent is listed with its purpose, key capabilities, **available skills**, and installed location in the Claude Code plugin system.
 
-**New:** Each agent now shows which skills automatically activate when you use them!
+**Updated:** All agents now reference their actual installed locations in the Claude Code plugin marketplace at:
+`C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\`
+
+**New:** Each agent now shows which skills automatically activate from installed plugins when you use them!
 
 ---
 
 ## 1. Backend Architect
 
-**File**: [`agents/backend-architect.md`](agents/backend-architect.md)
+**Plugin**: `backend-development`
+**Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\backend-development\agents\backend-architect.md`
 **Model**: Opus
 **Use Case**: API design, multi-tenant architecture, pricing engine logic
 
@@ -40,7 +44,8 @@ Expert backend architect specializing in scalable API design, microservices arch
 
 ## 2. Security Auditor
 
-**File**: [`agents/security-auditor.md`](agents/security-auditor.md)
+**Plugin**: `comprehensive-review` / `security-compliance` / `security-scanning`
+**Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\comprehensive-review\agents\security-auditor.md`
 **Model**: Opus
 **Use Case**: Security reviews, RLS policy validation, permission enforcement
 
@@ -56,9 +61,14 @@ Expert security auditor specializing in DevSecOps, comprehensive cybersecurity, 
 - **Compliance**: GDPR, HIPAA, PCI-DSS, SOC 2, ISO 27001, NIST Cybersecurity Framework
 
 ### 🎯 Available Skills (Auto-Activate)
+From `security-scanning` plugin:
 - **sast-configuration** - Configure SAST tools for vulnerability detection
+
+From `kubernetes-operations` plugin:
 - **k8s-security-policies** - Kubernetes NetworkPolicy, PodSecurityPolicy, RBAC
-- **solidity-security** - Smart contract security (when working with blockchain)
+
+From `blockchain-web3` plugin (when working with blockchain):
+- **solidity-security** - Smart contract security auditing
 
 ### When to Use
 - Conducting comprehensive security audits
@@ -72,7 +82,8 @@ Expert security auditor specializing in DevSecOps, comprehensive cybersecurity, 
 
 ## 3. Database Optimizer
 
-**File**: [`agents/database-optimizer.md`](agents/database-optimizer.md)
+**Plugin**: `database-cloud-optimization` / `database-migrations` / `observability-monitoring`
+**Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\database-cloud-optimization\agents\database-optimizer.md`
 **Model**: Opus
 **Use Case**: Query performance, indexing, multi-tenant data isolation
 
@@ -88,8 +99,13 @@ Expert database optimizer specializing in modern performance tuning, query optim
 - **Scaling**: Horizontal partitioning, sharding, read replicas, write optimization
 
 ### 🎯 Available Skills (Auto-Activate)
+From `cloud-infrastructure` plugin:
 - **cost-optimization** - Cloud cost optimization, rightsizing, reserved instances
+
+From `framework-migration` plugin:
 - **database-migration** - Zero-downtime migration strategies
+
+From `observability-monitoring` plugin:
 - **prometheus-configuration** - Setup Prometheus for database monitoring
 
 ### When to Use
@@ -104,7 +120,8 @@ Expert database optimizer specializing in modern performance tuning, query optim
 
 ## 4. Test Automator
 
-**File**: [`agents/test-automator.md`](agents/test-automator.md)
+**Plugin**: `unit-testing` / `full-stack-orchestration` / `performance-testing-review`
+**Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\unit-testing\agents\test-automator.md`
 **Model**: Sonnet
 **Use Case**: Test generation for pricing calculations and RLS policies
 
@@ -120,10 +137,17 @@ Master AI-powered test automation with modern frameworks, self-healing tests, an
 - **Quality Engineering**: Test pyramid, risk-based testing, shift-left practices
 
 ### 🎯 Available Skills (Auto-Activate)
+From `python-development` plugin:
 - **python-testing-patterns** - Pytest patterns, fixtures, mocking, parametrization
+
+From `javascript-typescript` plugin:
 - **javascript-testing-patterns** - Jest/Vitest patterns, Testing Library, mocks
-- **web3-testing** - Smart contract testing with Hardhat/Foundry (blockchain projects)
-- **bats-testing-patterns** - Bash testing patterns (for shell scripts)
+
+From `blockchain-web3` plugin (blockchain projects):
+- **web3-testing** - Smart contract testing with Hardhat/Foundry
+
+From `shell-scripting` plugin (shell scripts):
+- **bats-testing-patterns** - Bash testing patterns
 
 ### When to Use
 - Generating comprehensive test suites for new features
@@ -137,7 +161,8 @@ Master AI-powered test automation with modern frameworks, self-healing tests, an
 
 ## 5. Frontend Developer
 
-**File**: [`agents/frontend-developer.md`](agents/frontend-developer.md)
+**Plugin**: `frontend-mobile-development` / `multi-platform-apps` / `application-performance`
+**Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\frontend-mobile-development\agents\frontend-developer.md`
 **Model**: Sonnet
 **Use Case**: React components, TypeScript implementation, state management
 
@@ -153,7 +178,10 @@ Build React components, implement responsive layouts, and handle client-side sta
 - **Testing**: React Testing Library, Jest, Playwright, Storybook, visual regression
 
 ### 🎯 Available Skills (Auto-Activate)
+From `framework-migration` plugin:
 - **react-modernization** - Upgrade React apps, migrate to hooks, concurrent features
+
+From `javascript-typescript` plugin:
 - **modern-javascript-patterns** - ES6+ features, async/await, functional programming
 - **typescript-advanced-types** - Advanced TypeScript patterns and generics
 - **nodejs-backend-patterns** - Node.js backend patterns (for full-stack work)
@@ -170,7 +198,8 @@ Build React components, implement responsive layouts, and handle client-side sta
 
 ## 6. UI/UX Designer
 
-**File**: [`agents/ui-ux-designer.md`](agents/ui-ux-designer.md)
+**Plugin**: `multi-platform-apps`
+**Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\multi-platform-apps\agents\ui-ux-designer.md`
 **Model**: Sonnet
 **Use Case**: Interface design, wireframes, extravagant user experience
 
@@ -186,7 +215,10 @@ Create interface designs, wireframes, and design systems. Masters user research,
 - **Visual Design**: Typography systems, color theory, layout principles, iconography
 
 ### 🎯 Available Skills (Auto-Activate)
+From `framework-migration` plugin:
 - **react-modernization** - Modern React component patterns for design systems
+
+From `javascript-typescript` plugin:
 - **modern-javascript-patterns** - JavaScript patterns for interactive prototypes
 
 ### When to Use
@@ -201,7 +233,8 @@ Create interface designs, wireframes, and design systems. Masters user research,
 
 ## 7. Payment Integration
 
-**File**: [`agents/payment-integration.md`](agents/payment-integration.md)
+**Plugin**: `payment-processing`
+**Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\payment-processing\agents\payment-integration.md`
 **Model**: Sonnet
 **Use Case**: Payment gateway integration, company creation flow
 
@@ -217,6 +250,7 @@ Integrate Stripe, PayPal, and payment processors. Handles checkout flows, subscr
 - **Error Handling**: Failed payments, disputes, refunds, retry strategies
 
 ### 🎯 Available Skills (Auto-Activate)
+From `payment-processing` plugin:
 - **stripe-integration** - Stripe checkout, subscriptions, webhooks, payment intents
 - **paypal-integration** - PayPal express checkout, subscriptions, dispute handling
 - **pci-compliance** - PCI DSS compliance for secure payment handling
@@ -234,7 +268,8 @@ Integrate Stripe, PayPal, and payment processors. Handles checkout flows, subscr
 
 ## 8. TypeScript Pro
 
-**File**: [`agents/typescript-pro.md`](agents/typescript-pro.md)
+**Plugin**: `javascript-typescript`
+**Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\javascript-typescript\agents\typescript-pro.md`
 **Model**: Sonnet
 **Use Case**: Type-safe code, pricing calculation functions, validation logic
 
@@ -250,6 +285,7 @@ Master TypeScript with advanced types, generics, and strict type safety. Handles
 - **Framework Integration**: React, Node.js, Express type-safe patterns
 
 ### 🎯 Available Skills (Auto-Activate)
+From `javascript-typescript` plugin:
 - **typescript-advanced-types** - Generics, conditional types, mapped types, utility types
 - **modern-javascript-patterns** - ES6+ patterns that complement TypeScript
 - **nodejs-backend-patterns** - Type-safe Node.js backend patterns
@@ -266,7 +302,8 @@ Master TypeScript with advanced types, generics, and strict type safety. Handles
 
 ## 9. TDD Orchestrator
 
-**File**: [`agents/tdd-orchestrator.md`](agents/tdd-orchestrator.md)
+**Plugin**: `tdd-workflows` / `backend-development`
+**Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\tdd-workflows\agents\tdd-orchestrator.md`
 **Model**: Opus
 **Use Case**: Test-driven development workflows, test-first approach
 
@@ -282,7 +319,10 @@ Master TDD orchestrator specializing in red-green-refactor discipline, multi-age
 - **Metrics**: Cycle time tracking, coverage analysis, quality assessment through mutation testing
 
 ### 🎯 Available Skills (Auto-Activate)
+From `python-development` plugin:
 - **python-testing-patterns** - Python TDD patterns, pytest, fixtures
+
+From `javascript-typescript` plugin:
 - **javascript-testing-patterns** - JavaScript TDD patterns, Jest, mocking
 
 ### When to Use
@@ -297,7 +337,8 @@ Master TDD orchestrator specializing in red-green-refactor discipline, multi-age
 
 ## 10. Code Reviewer
 
-**File**: [`agents/code-reviewer.md`](agents/code-reviewer.md)
+**Plugin**: `comprehensive-review` / `code-documentation` / `codebase-cleanup`
+**Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\comprehensive-review\agents\code-reviewer.md`
 **Model**: Opus
 **Use Case**: Security-focused code reviews, best practices analysis
 
@@ -313,7 +354,10 @@ Elite code review expert specializing in modern AI-powered code analysis, securi
 - **Modern Practices**: TDD compliance, BDD scenarios, contract testing, feature flags
 
 ### 🎯 Available Skills (Auto-Activate)
+From `security-scanning` plugin:
 - **sast-configuration** - Static analysis tool configuration
+
+From `backend-development` plugin:
 - **api-design-principles** - API design best practices review
 - **architecture-patterns** - Architectural pattern compliance
 
@@ -329,7 +373,8 @@ Elite code review expert specializing in modern AI-powered code analysis, securi
 
 ## 11. Debugger
 
-**File**: [`agents/debugger.md`](agents/debugger.md)
+**Plugin**: `debugging-toolkit` / `error-debugging` / `unit-testing`
+**Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\debugging-toolkit\agents\debugger.md`
 **Model**: Sonnet
 **Use Case**: Error resolution and root cause analysis
 
@@ -345,6 +390,7 @@ Debugging specialist for errors, test failures, and unexpected behavior. Focuses
 - **Documentation**: Root cause explanation, prevention recommendations
 
 ### 🎯 Available Skills (Auto-Activate)
+From `observability-monitoring` plugin:
 - **distributed-tracing** - Distributed system debugging with Jaeger/Tempo
 
 ### When to Use
@@ -358,7 +404,8 @@ Debugging specialist for errors, test failures, and unexpected behavior. Focuses
 
 ## 12. Error Detective
 
-**File**: [`agents/error-detective.md`](agents/error-detective.md)
+**Plugin**: `distributed-debugging` / `error-debugging` / `error-diagnostics`
+**Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\distributed-debugging\agents\error-detective.md`
 **Model**: Sonnet
 **Use Case**: Stack trace investigation and bug hunting
 
@@ -374,6 +421,7 @@ Search logs and codebases for error patterns, stack traces, and anomalies. Corre
 - **Monitoring**: Prevention strategies, recurrence detection queries
 
 ### 🎯 Available Skills (Auto-Activate)
+From `observability-monitoring` plugin:
 - **distributed-tracing** - Trace requests across distributed systems
 - **grafana-dashboards** - Create dashboards for error monitoring
 
@@ -389,7 +437,8 @@ Search logs and codebases for error patterns, stack traces, and anomalies. Corre
 
 ## 13. Prompt Engineer
 
-**File**: [`agents/prompt-engineer.md`](agents/prompt-engineer.md)
+**Plugin**: `llm-application-dev`
+**Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\llm-application-dev\agents\prompt-engineer.md`
 **Model**: Opus
 **Use Case**: AI prompt optimization, Claude/GPT API integration, agent configuration
 
@@ -405,6 +454,7 @@ Expert prompt engineer specializing in advanced prompting techniques, LLM optimi
 - **Evaluation**: Performance metrics, testing methodologies, safety assessment
 
 ### 🎯 Available Skills (Auto-Activate)
+From `llm-application-dev` plugin:
 - **langchain-architecture** - LangChain agents, memory, tool integration
 - **prompt-engineering-patterns** - Advanced prompting techniques, few-shot learning
 - **rag-implementation** - RAG systems with vector databases, semantic search
@@ -422,7 +472,8 @@ Expert prompt engineer specializing in advanced prompting techniques, LLM optimi
 
 ## 14. Mobile Developer
 
-**File**: [`agents/mobile-developer.md`](agents/mobile-developer.md)
+**Plugin**: `frontend-mobile-development` / `multi-platform-apps`
+**Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\frontend-mobile-development\agents\mobile-developer.md`
 **Model**: Sonnet
 **Use Case**: PWA optimization, mobile-responsive implementation, app store preparation
 
@@ -438,7 +489,10 @@ Expert mobile developer specializing in cross-platform development, PWA optimiza
 - **Testing**: Mobile device testing, responsive testing, performance profiling on mobile
 
 ### 🎯 Available Skills (Auto-Activate)
+From `framework-migration` plugin:
 - **react-modernization** - Modern React patterns for mobile development
+
+From `javascript-typescript` plugin:
 - **typescript-advanced-types** - Type-safe mobile development
 - **modern-javascript-patterns** - JavaScript patterns for mobile apps
 
@@ -538,8 +592,9 @@ To confirm skills are active, ask:
 
 ## See Also
 
+- [INSTALLED_PLUGINS_CATALOG.md](INSTALLED_PLUGINS_CATALOG.md) - Complete catalog of all 65 installed plugins with agents, skills, and commands
 - [WEBSITE-PRIORITY-AGENTS.md](WEBSITE-PRIORITY-AGENTS.md) - Website-specific agents (18 agents)
 - [docs/agent-skills.md](docs/agent-skills.md) - Complete skills documentation (47 skills)
-- [docs/plugins.md](docs/plugins.md) - All 63 plugins
+- [docs/plugins.md](docs/plugins.md) - Plugin documentation
 - [CLAUDE.md](CLAUDE.md) - Safety guide and configuration instructions
-- [agents/README.md](agents/README.md) - Complete agent documentation
+- [CREATING-AGENTS-PLUGINS.md](CREATING-AGENTS-PLUGINS.md) - Guide for creating custom agents and plugins

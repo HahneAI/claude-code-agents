@@ -16,42 +16,39 @@
 ```
 .claude/agents/
 ├── .claude-plugin/           # Plugin marketplace configuration
-├── plugins/                  # 64 domain-focused plugin directories
-│   ├── backend-development/
-│   │   ├── agents/          # Domain-specific agents (backend-architect, graphql-architect, etc.)
-│   │   ├── commands/        # Slash commands and workflows
-│   │   └── skills/          # Auto-activating skills (api-design-principles, etc.)
-│   ├── python-development/
-│   │   ├── agents/          # Python-specific agents
-│   │   ├── commands/        # Python tooling commands
-│   │   └── skills/          # 5 Python skills (async-patterns, testing, packaging, etc.)
-│   └── [62 more plugins...]
-├── docs/                     # Documentation
-│   ├── agent-skills.md      # Complete skills catalog (47 skills)
-│   ├── agents.md            # Agent reference
+│   └── marketplace.json      # Plugin registry and metadata
+├── .github/                  # GitHub workflows and templates
+├── docs/                     # Documentation (reference only)
+│   ├── agent-skills.md      # Skills catalog documentation
+│   ├── agents.md            # Agent reference documentation
 │   ├── architecture.md      # System design principles
-│   ├── plugins.md           # Plugin catalog
+│   ├── plugins.md           # Plugin catalog documentation
 │   └── usage.md             # Usage guide
-├── PRIORITY_AGENTS.md        # Quick reference: 14 priority agents with skill mappings
-├── WEBSITE-PRIORITY-AGENTS.md # Quick reference: 18 website agents with skill mappings
+├── PRIORITY_AGENTS.md        # Quick reference: 14 priority agents (documentation)
+├── WEBSITE-PRIORITY-AGENTS.md # Quick reference: 18 website agents (documentation)
+├── CREATING-AGENTS-PLUGINS.md # Comprehensive guide for creating agents/plugins/skills
 ├── CLAUDE.md                 # This file - your safety guide
-└── README.md                 # Public documentation
+├── README.md                 # Public documentation
+└── LICENSE                   # MIT License
 ```
 
-**Key Numbers:**
-- 🔌 **64 plugins** organized by domain (backend, frontend, security, DevOps, languages, etc.)
-- 🤖 **146 specialized agents** distributed across plugins
-- 🎯 **47 auto-activating skills** in 15 plugins (progressive disclosure for token efficiency)
-- 📋 **44+ slash commands** for direct workflow invocation
+**Current State:**
+- 📚 **Documentation-only repository** - Agent/plugin implementation files removed
+- 📋 **Reference documentation** for 32 priority agents (14 general + 18 website-focused)
+- 📖 **Creation guide** (CREATING-AGENTS-PLUGINS.md) - Instructions for building new agents/plugins/skills
+- 🔧 **Plugin marketplace config** (.claude-plugin/marketplace.json)
+
+**To Add Working Agents:**
+- Option 1: Restore `plugins/` directory from git history
+- Option 2: Pull from upstream repository (github.com/wshobson/agents)
+- Option 3: Create new agents following CREATING-AGENTS-PLUGINS.md guide
 
 **Primary Edit Zones:**
-- ✅ `plugins/*/agents/` - Safe to add new agents within appropriate domain plugin
-- ✅ `plugins/*/commands/` - Safe to add/modify slash commands and workflows
-- ✅ `plugins/*/skills/` - Safe to add skills (follow Agent Skills Specification)
-- ⚠️ `PRIORITY_AGENTS.md` / `WEBSITE-PRIORITY-AGENTS.md` - Update when adding priority agents
+- ✅ `PRIORITY_AGENTS.md` / `WEBSITE-PRIORITY-AGENTS.md` - Safe to update priority agent lists
+- ✅ `CREATING-AGENTS-PLUGINS.md` - Safe to improve creation guide
 - ⚠️ `CLAUDE.md` - This file - be thoughtful about changes
 - ⚠️ `.claude-plugin/marketplace.json` - Plugin registry - modify carefully
-- 🚫 `docs/` - Generated documentation - modify only when structure changes
+- ⚠️ `docs/` - Reference documentation - update when needed
 
 ---
 

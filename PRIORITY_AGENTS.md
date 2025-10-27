@@ -2,14 +2,95 @@
 
 This document provides quick access to the most frequently used agents for your development workflows. Each agent is listed with its purpose, key capabilities, **available skills**, and installed location in the Claude Code plugin system.
 
-**Updated:** All agents now reference their actual installed locations in the Claude Code plugin marketplace at:
-`C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\`
+**Updated:** All agents now reference their actual installed locations in the Claude Code plugin marketplace.
 
 **New:** Each agent now shows which skills automatically activate from installed plugins when you use them!
 
 ---
 
-## 1. Backend Architect
+## 1. Agent Selector ⭐ CRITICAL
+
+**Plugin**: `claude-code-expert` (Custom Marketplace)
+**Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\my-claude-plugins\claude-code-expert\agents\agent-selector.md`
+**Model**: Opus
+**Use Case**: Intelligent task routing and multi-agent workflow orchestration
+
+### What It Does
+Intelligent agent routing specialist that analyzes user requests and determines optimal agent(s), workflow sequence, and multi-agent coordination. This is the **FIRST agent** that should be considered for any complex task requiring agent selection or orchestration.
+
+### Key Capabilities
+- **Intent Classification**: Extract keywords, assess complexity, identify ambiguity
+- **Agent Matching**: Select primary agents, identify support agents, consider skill auto-activation
+- **Workflow Orchestration**: Define sequences (sequential/parallel), plan handoff points, optimize performance
+- **Decision Trees**: Single vs multi-agent decisions, model selection (Opus/Sonnet/Haiku)
+- **Agent Selection Matrix**: Complete knowledge of all agent specializations (backend, frontend, database, security, testing, payment, DevOps, mobile, AI, debugging, documentation)
+- **Multi-Agent Patterns**: Architecture→Implementation→Review, TDD cycles, Security-first, Full-stack features, Performance optimization, Debugging investigations
+
+### 🎯 Available Skills (Auto-Activate)
+From `claude-code-expert` plugin:
+- **intent-classifier** - Agent routing logic, quick routing matrix, workflow patterns (WORKS HAND-IN-HAND WITH THIS AGENT)
+
+### When to Use
+- **PROACTIVELY for ANY complex task** - Before any actual implementation begins
+- User request is ambiguous (could match multiple agents)
+- Task complexity suggests multi-agent workflow might be better
+- Unclear which agent specialization fits best
+- Need to plan agent sequence for complex tasks
+- Optimizing agent usage for performance
+- **Whenever anything requiring agents is detected** - This agent ensures optimal routing
+
+### Why It's #1 Priority
+This agent operates at a **meta-level** above all execution agents. It ensures:
+1. **Right agent, right time**: Prevents token waste and suboptimal results from poor routing
+2. **Progressive complexity**: Starts simple, only escalates when truly needed
+3. **Token efficiency**: Avoids redundant invocations, preloads relevant skills
+4. **Workflow optimization**: Plans parallel execution, identifies handoff points
+
+Without proper routing, even the best agents can produce suboptimal results. **agent-selector + intent-classifier** work together to ensure every task gets the optimal agent treatment.
+
+---
+
+## 2. Claude Code Expert
+
+**Plugin**: `claude-code-expert` (Custom Marketplace)
+**Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\my-claude-plugins\claude-code-expert\agents\claude-code-expert.md`
+**Model**: Sonnet
+**Use Case**: Claude Code setup, optimization, and CLAUDE.md creation
+
+### What It Does
+Expert in Claude Code usage, setup, optimization, and best practices. Masters agent selection, plugin architecture, CLAUDE.md creation, and system configuration. Teaches users how to maximize their Claude Code experience.
+
+### Key Capabilities
+- **System Knowledge**: Plugin system, agent selection, skills auto-activation, progressive disclosure, 65 installed plugins catalog
+- **CLAUDE.md Creation**: Generate project-specific configurations (minimal/standard/comprehensive templates)
+- **User Onboarding**: Progressive learning paths, common pitfalls, use case mapping
+- **Troubleshooting**: Agent selection issues, performance optimization, integration problems, workflow optimization
+- **MCP Servers**: Filesystem, GitHub, Brave Search, PostgreSQL, Puppeteer integrations
+- **Template Library**: Minimal (simple projects), Standard (most projects), Comprehensive (complex/team projects)
+
+### 🎯 Available Skills (Auto-Activate)
+From `claude-code-expert` plugin:
+- **doc-template-minimal** - Token-efficient documentation standards (activates on: documentation, docs, README, comment, explain code)
+- **intent-classifier** - Agent routing logic for task classification
+
+### When to Use
+- **PROACTIVELY when starting new projects** - Set up optimal Claude Code configuration
+- User asks: "How do I use Claude Code?", "What can Claude Code do?", "Why isn't X working?"
+- Creating CLAUDE.md files for new projects
+- Optimizing Claude Code setup for specific tech stacks
+- Troubleshooting agent selection or plugin issues
+- Teaching users about multi-agent workflows
+- Explaining plugin/agent/skill architecture
+
+### Available Commands
+- `/claude-code-expert:help` - Show available agents and commands for current project
+- `/claude-code-expert:explain-routing` - Explain why specific agents were chosen
+- `/claude-code-expert:best-practices` - Show Claude Code optimization tips
+- `/claude-code-expert:create-claude-md` - Generate project-specific CLAUDE.md file
+
+---
+
+## 3. Backend Architect
 
 **Plugin**: `backend-development`
 **Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\backend-development\agents\backend-architect.md`
@@ -42,7 +123,7 @@ Expert backend architect specializing in scalable API design, microservices arch
 
 ---
 
-## 2. Security Auditor
+## 4. Security Auditor
 
 **Plugin**: `comprehensive-review` / `security-compliance` / `security-scanning`
 **Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\comprehensive-review\agents\security-auditor.md`
@@ -80,7 +161,7 @@ From `blockchain-web3` plugin (when working with blockchain):
 
 ---
 
-## 3. Database Optimizer
+## 5. Database Optimizer
 
 **Plugin**: `database-cloud-optimization` / `database-migrations` / `observability-monitoring`
 **Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\database-cloud-optimization\agents\database-optimizer.md`
@@ -118,7 +199,7 @@ From `observability-monitoring` plugin:
 
 ---
 
-## 4. Test Automator
+## 6. Test Automator
 
 **Plugin**: `unit-testing` / `full-stack-orchestration` / `performance-testing-review`
 **Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\unit-testing\agents\test-automator.md`
@@ -159,7 +240,7 @@ From `shell-scripting` plugin (shell scripts):
 
 ---
 
-## 5. Frontend Developer
+## 7. Frontend Developer
 
 **Plugin**: `frontend-mobile-development` / `multi-platform-apps` / `application-performance`
 **Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\frontend-mobile-development\agents\frontend-developer.md`
@@ -196,7 +277,7 @@ From `javascript-typescript` plugin:
 
 ---
 
-## 6. UI/UX Designer
+## 8. UI/UX Designer
 
 **Plugin**: `multi-platform-apps`
 **Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\multi-platform-apps\agents\ui-ux-designer.md`
@@ -231,7 +312,7 @@ From `javascript-typescript` plugin:
 
 ---
 
-## 7. Payment Integration
+## 9. Payment Integration
 
 **Plugin**: `payment-processing`
 **Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\payment-processing\agents\payment-integration.md`
@@ -266,7 +347,7 @@ From `payment-processing` plugin:
 
 ---
 
-## 8. TypeScript Pro
+## 10. TypeScript Pro
 
 **Plugin**: `javascript-typescript`
 **Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\javascript-typescript\agents\typescript-pro.md`
@@ -300,7 +381,7 @@ From `javascript-typescript` plugin:
 
 ---
 
-## 9. TDD Orchestrator
+## 11. TDD Orchestrator
 
 **Plugin**: `tdd-workflows` / `backend-development`
 **Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\tdd-workflows\agents\tdd-orchestrator.md`
@@ -335,7 +416,7 @@ From `javascript-typescript` plugin:
 
 ---
 
-## 10. Code Reviewer
+## 12. Code Reviewer
 
 **Plugin**: `comprehensive-review` / `code-documentation` / `codebase-cleanup`
 **Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\comprehensive-review\agents\code-reviewer.md`
@@ -371,7 +452,7 @@ From `backend-development` plugin:
 
 ---
 
-## 11. Debugger
+## 13. Debugger
 
 **Plugin**: `debugging-toolkit` / `error-debugging` / `unit-testing`
 **Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\debugging-toolkit\agents\debugger.md`
@@ -402,7 +483,7 @@ From `observability-monitoring` plugin:
 
 ---
 
-## 12. Error Detective
+## 14. Error Detective
 
 **Plugin**: `distributed-debugging` / `error-debugging` / `error-diagnostics`
 **Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\distributed-debugging\agents\error-detective.md`
@@ -435,7 +516,7 @@ From `observability-monitoring` plugin:
 
 ---
 
-## 13. Prompt Engineer
+## 15. Prompt Engineer
 
 **Plugin**: `llm-application-dev`
 **Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\llm-application-dev\agents\prompt-engineer.md`
@@ -470,7 +551,7 @@ From `llm-application-dev` plugin:
 
 ---
 
-## 14. Mobile Developer
+## 16. Mobile Developer
 
 **Plugin**: `frontend-mobile-development` / `multi-platform-apps`
 **Installed Location**: `C:\Users\antho\.claude\plugins\marketplaces\claude-code-workflows\plugins\frontend-mobile-development\agents\mobile-developer.md`
@@ -530,6 +611,8 @@ From `javascript-typescript` plugin:
 
 | Agent | Model | Primary Use Case | Key Strength | Skills Available |
 |-------|-------|------------------|--------------|------------------|
+| **agent-selector** ⭐ | Opus | Task Routing | Intelligent multi-agent orchestration | 1 skill |
+| **claude-code-expert** | Sonnet | Claude Code Setup | System optimization & CLAUDE.md creation | 2 skills |
 | **backend-architect** | Opus | API Design | Scalable microservices architecture | 4 skills |
 | **security-auditor** | Opus | Security Reviews | OWASP compliance & DevSecOps | 3 skills |
 | **database-optimizer** | Opus | Query Performance | Advanced indexing & caching | 3 skills |
@@ -545,7 +628,7 @@ From `javascript-typescript` plugin:
 | **prompt-engineer** | Opus | AI Integration | Chain-of-thought & constitutional AI | 4 skills |
 | **mobile-developer** | Sonnet | PWA & Mobile | Mobile-first optimization & native prep | 3 skills |
 
-**Total: 14 agents with 43 auto-activating skills**
+**Total: 16 agents with 46 auto-activating skills**
 
 ---
 

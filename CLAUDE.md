@@ -24,7 +24,7 @@
 │   ├── architecture.md      # System design principles
 │   ├── plugins.md           # Plugin catalog documentation
 │   └── usage.md             # Usage guide
-├── PRIORITY_AGENTS.md        # Quick reference: 14 priority agents (documentation)
+├── PRIORITY_AGENTS.md        # Quick reference: 16 priority agents (documentation)
 ├── WEBSITE-PRIORITY-AGENTS.md # Quick reference: 18 website agents (documentation)
 ├── CREATING-AGENTS-PLUGINS.md # Comprehensive guide for creating agents/plugins/skills
 ├── CLAUDE.md                 # This file - your safety guide
@@ -34,7 +34,7 @@
 
 **Current State:**
 - 📚 **Documentation-only repository** - Agent/plugin implementation files removed
-- 📋 **Reference documentation** for 32 priority agents (14 general + 18 website-focused)
+- 📋 **Reference documentation** for 34 priority agents (16 general + 18 website-focused)
 - 📖 **Creation guide** (CREATING-AGENTS-PLUGINS.md) - Instructions for building new agents/plugins/skills
 - 🔧 **Plugin marketplace config** (.claude-plugin/marketplace.json)
 
@@ -530,27 +530,104 @@ When agents are asked to document:
 - **Upstream Source**: https://github.com/wshobson/agents
 
 ### Claude Code Expert Plugin (CUSTOM MARKETPLACE)
-**Marketplace Location**: `C:\Users\antho\my-claude-plugins\`
-**Plugin Location**: `C:\Users\antho\my-claude-plugins\claude-code-expert\`
+**Marketplace Location**: `C:\Users\antho\.claude\plugins\marketplaces\my-claude-plugins\`
+**Plugin Location**: `C:\Users\antho\.claude\plugins\marketplaces\my-claude-plugins\claude-code-expert\`
 
-**Slash Commands:**
-- `/claude-code-expert:help` - Show available agents and commands for current project
-- `/claude-code-expert:explain-routing` - Explain why specific agents were chosen for last task
-- `/claude-code-expert:best-practices` - Show Claude Code optimization tips
-- `/claude-code-expert:create-claude-md` - Generate project-specific CLAUDE.md file
+---
 
-**Agents:**
-- **claude-code-expert** (Sonnet) - Helps users understand, configure, and optimize Claude Code. Creates CLAUDE.md files for new projects.
-- **agent-selector** (Opus) - Intelligent task routing specialist. Determines optimal agent(s) for each request.
+#### ⭐ Agent: agent-selector (Opus) - CRITICAL
+**Location**: `agents/agent-selector.md`
+**Priority**: #1 - The most important agent for intelligent task routing
 
-**Skills** (Auto-activate on keywords):
-- **doc-template-minimal** - Token-efficient documentation standards (activates: documentation, docs, README, comment)
-- **intent-classifier** - Agent routing logic (activates: route, classify, which agent, task routing)
+**What It Does:**
+Intelligent agent routing specialist that analyzes user requests and determines optimal agent(s), workflow sequence, and multi-agent coordination. Operates at a **meta-level** above all execution agents.
 
-**Usage Examples:**
-- "Invoke claude-code-expert to help me set up a new project"
+**Key Capabilities:**
+- Intent classification (keywords, complexity assessment, ambiguity resolution)
+- Agent matching (primary + support agents, skill consideration)
+- Workflow orchestration (sequential/parallel, handoff points)
+- Agent selection matrix (backend, frontend, database, security, testing, payment, DevOps, mobile, AI, debugging, docs)
+- Multi-agent patterns (Architecture→Implementation→Review, TDD cycles, Security-first, Full-stack, Performance, Debugging)
+
+**When to Use:**
+- **PROACTIVELY for ANY complex task** - Before implementation begins
+- User request is ambiguous or could match multiple agents
+- Task complexity suggests multi-agent workflow
+- Need to plan agent sequence for complex tasks
+- Optimizing agent usage for performance
+
+**Works With:** intent-classifier skill (hand-in-hand for routing decisions)
+
+---
+
+#### Agent: claude-code-expert (Sonnet)
+**Location**: `agents/claude-code-expert.md`
+**Priority**: #2 - Essential for system setup and optimization
+
+**What It Does:**
+Expert in Claude Code usage, setup, optimization, and best practices. Masters agent selection, plugin architecture, CLAUDE.md creation, and system configuration. Teaches users how to maximize their Claude Code experience.
+
+**Key Capabilities:**
+- System knowledge (plugin system, 65 installed plugins catalog, agent selection, skills auto-activation)
+- CLAUDE.md creation (minimal/standard/comprehensive templates for different project types)
+- User onboarding (progressive learning, common pitfalls, use case mapping)
+- Troubleshooting (agent selection issues, performance optimization, integration problems)
+- MCP server knowledge (Filesystem, GitHub, Brave Search, PostgreSQL, Puppeteer)
+
+**When to Use:**
+- **PROACTIVELY when starting new projects** - Set up optimal configuration
+- User asks: "How do I use Claude Code?", "What can Claude Code do?", "Why isn't X working?"
+- Creating CLAUDE.md files for new projects
+- Optimizing Claude Code setup for specific tech stacks
+- Teaching users about multi-agent workflows
+
+**Works With:** doc-template-minimal skill (for documentation standards)
+
+---
+
+#### Skills (Auto-activate on keywords)
+
+**doc-template-minimal**
+- **Activates on**: documentation, docs, README, comment, explain code
+- **Purpose**: Token-efficient documentation standards
+- **What it provides**: Function docs (max 50 tokens), API docs (max 200 tokens), architecture docs (max 1000 tokens)
+- **Philosophy**: Every character costs tokens - be ruthlessly concise while maintaining clarity
+
+**intent-classifier** ⭐
+- **Activates on**: route, classify, which agent, task routing, agent selection
+- **Purpose**: Agent routing logic for task classification
+- **What it provides**: Quick routing matrix, workflow patterns, agent selection rules
+- **Works with**: agent-selector agent (hand-in-hand for optimal routing)
+
+---
+
+#### Slash Commands
+
+- `/claude-code-expert:help` - Show available agents, plugins, and commands for current project
+- `/claude-code-expert:explain-routing` - Explain why specific agents were chosen for the last task
+- `/claude-code-expert:best-practices` - Show Claude Code optimization tips and best practices
+- `/claude-code-expert:create-claude-md` - Generate project-specific CLAUDE.md file (minimal/standard/comprehensive)
+
+---
+
+#### Usage Examples
+
+**For Agent Selection:**
+- "Use agent-selector to determine the best agents for implementing Stripe checkout"
 - "Have agent-selector explain why you chose those agents"
+- "Which agents should handle this multi-service architecture?"
+
+**For Claude Code Setup:**
+- "Invoke claude-code-expert to help me set up a new React + FastAPI project"
 - "Run /claude-code-expert:create-claude-md to generate project configuration"
+- "How do I optimize Claude Code for my team's workflow?"
+
+**For Documentation:**
+- "Document this API following doc-template-minimal standards" (auto-activates skill)
+- "Create token-efficient documentation for this component"
+
+**For Routing:**
+- When mentioning "route", "classify", "which agent" - intent-classifier skill auto-activates to assist agent-selector
 
 ---
 

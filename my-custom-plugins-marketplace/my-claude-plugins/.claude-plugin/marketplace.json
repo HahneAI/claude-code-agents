@@ -1,0 +1,13 @@
+{
+  "name": "my-custom-plugins",
+  "owner": {
+    "name": "Anthony"
+  },
+  "plugins": [
+    {
+      "name": "claude-code-expert",
+      "source": "./claude-code-expert",
+      "description": "Claude Code expertise, routing help, and best practices"
+    }
+  ]
+}

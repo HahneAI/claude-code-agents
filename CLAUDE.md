@@ -529,24 +529,28 @@ When agents are asked to document:
 - **GitHub Repo**: https://github.com/HahneAI/claude-code-agents
 - **Upstream Source**: https://github.com/wshobson/agents
 
-### Claude Code Expert Plugin (LOCAL)
-**Location**: `plugins/claude-code-expert/`
+### Claude Code Expert Plugin (CUSTOM MARKETPLACE)
+**Marketplace Location**: `C:\Users\antho\my-claude-plugins\`
+**Plugin Location**: `C:\Users\antho\my-claude-plugins\claude-code-expert\`
 
-Use this plugin for:
-- **Getting Help**: `/claude-code-expert:help` - Show available agents and commands
-- **Understanding Routing**: `/claude-code-expert:explain-routing` - Why specific agents were chosen
-- **Best Practices**: `/claude-code-expert:best-practices` - Optimization tips
-- **Project Setup**: `/claude-code-expert:create-claude-md` - Generate project-specific CLAUDE.md
+**Slash Commands:**
+- `/claude-code-expert:help` - Show available agents and commands for current project
+- `/claude-code-expert:explain-routing` - Explain why specific agents were chosen for last task
+- `/claude-code-expert:best-practices` - Show Claude Code optimization tips
+- `/claude-code-expert:create-claude-md` - Generate project-specific CLAUDE.md file
 
-**Agents**:
-- **claude-code-expert**: Ask about Claude Code features, setup, optimization
-- **agent-selector**: Helps route tasks to optimal agents (internal use)
+**Agents:**
+- **claude-code-expert** (Sonnet) - Helps users understand, configure, and optimize Claude Code. Creates CLAUDE.md files for new projects.
+- **agent-selector** (Opus) - Intelligent task routing specialist. Determines optimal agent(s) for each request.
 
-**Skills** (Auto-activate):
-- **doc-template-minimal**: Token-efficient documentation standards
-- **intent-classifier**: Agent routing logic
+**Skills** (Auto-activate on keywords):
+- **doc-template-minimal** - Token-efficient documentation standards (activates: documentation, docs, README, comment)
+- **intent-classifier** - Agent routing logic (activates: route, classify, which agent, task routing)
 
-**Use**: "Invoke claude-code-expert to help me set up a new project" or run slash commands above
+**Usage Examples:**
+- "Invoke claude-code-expert to help me set up a new project"
+- "Have agent-selector explain why you chose those agents"
+- "Run /claude-code-expert:create-claude-md to generate project configuration"
 
 ---
 

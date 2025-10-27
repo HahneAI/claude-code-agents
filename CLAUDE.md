@@ -528,8 +528,25 @@ When agents are asked to document:
 - **Claude Code Docs**: https://docs.claude.com/en/docs/claude-code/
 - **GitHub Repo**: https://github.com/HahneAI/claude-code-agents
 - **Upstream Source**: https://github.com/wshobson/agents
-- **Documentation Template**: See `tools/doc-template.md`
-- **Intent Classifier**: See `tools/intent-classifier.md`
+
+### Claude Code Expert Plugin (LOCAL)
+**Location**: `plugins/claude-code-expert/`
+
+Use this plugin for:
+- **Getting Help**: `/claude-code-expert:help` - Show available agents and commands
+- **Understanding Routing**: `/claude-code-expert:explain-routing` - Why specific agents were chosen
+- **Best Practices**: `/claude-code-expert:best-practices` - Optimization tips
+- **Project Setup**: `/claude-code-expert:create-claude-md` - Generate project-specific CLAUDE.md
+
+**Agents**:
+- **claude-code-expert**: Ask about Claude Code features, setup, optimization
+- **agent-selector**: Helps route tasks to optimal agents (internal use)
+
+**Skills** (Auto-activate):
+- **doc-template-minimal**: Token-efficient documentation standards
+- **intent-classifier**: Agent routing logic
+
+**Use**: "Invoke claude-code-expert to help me set up a new project" or run slash commands above
 
 ---
 

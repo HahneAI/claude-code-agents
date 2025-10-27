@@ -6,6 +6,7 @@ This guide walks you through creating new agents, plugins, skills, and commands 
 
 ## 📋 Table of Contents
 
+0. [Creating a Custom Marketplace](#creating-a-custom-marketplace) **← START HERE FOR NEW PLUGINS**
 1. [Understanding the Architecture](#understanding-the-architecture)
 2. [Creating a New Agent](#creating-a-new-agent)
 3. [Creating a New Plugin](#creating-a-new-plugin)
@@ -14,6 +15,198 @@ This guide walks you through creating new agents, plugins, skills, and commands 
 6. [Testing Your Creation](#testing-your-creation)
 7. [Adding to Priority Lists](#adding-to-priority-lists)
 8. [Publishing to Marketplace](#publishing-to-marketplace)
+
+---
+
+## ⚠️ CRITICAL: Custom Marketplace Location
+
+**Your custom marketplace is located at:**
+```
+C:\Users\antho\.claude\plugins\marketplaces\my-claude-plugins\
+```
+
+**This is where ALL your custom plugins must go.** The marketplace is already registered with Claude Code.
+
+**When creating new plugins:**
+1. Create plugin directory: `C:\Users\antho\.claude\plugins\marketplaces\my-claude-plugins\{plugin-name}\`
+2. Add plugin manifest: `{plugin-name}\.claude-plugin\plugin.json`
+3. Create plugin content: `agents/`, `commands/`, `skills/` subdirectories
+4. Register in marketplace: Update `.claude-plugin\marketplace.json`
+
+**Existing custom plugin:**
+- `claude-code-expert` - Located at `C:\Users\antho\.claude\plugins\marketplaces\my-claude-plugins\claude-code-expert\`
+
+---
+
+## Creating a Custom Marketplace
+
+**Note:** You already have a custom marketplace! This section explains how it was created for reference.
+
+### Step 1: Create Marketplace Directory
+
+```bash
+cd C:\Users\antho\.claude\plugins\marketplaces
+mkdir my-claude-plugins
+cd my-claude-plugins
+```
+
+### Step 2: Create Marketplace Configuration Directory
+
+```bash
+mkdir .claude-plugin
+```
+
+### Step 3: Create Marketplace Manifest
+
+Create `.claude-plugin\marketplace.json`:
+
+```json
+{
+  "name": "my-custom-plugins",
+  "owner": {
+    "name": "Anthony"
+  },
+  "plugins": [
+    {
+      "name": "claude-code-expert",
+      "source": "./claude-code-expert",
+      "description": "Claude Code expertise, routing help, and best practices"
+    }
+  ]
+}
+```
+
+**Marketplace Manifest Fields:**
+- `name`: Marketplace identifier (hyphen-case)
+- `owner.name`: Your name or organization
+- `plugins`: Array of plugin entries
+  - `name`: Plugin identifier (must match plugin directory name)
+  - `source`: Relative path to plugin directory (always `./plugin-name`)
+  - `description`: Brief description (1-2 sentences)
+
+### Step 4: Register Marketplace with Claude Code
+
+In Claude Code CLI:
+```bash
+/plugins
+# Then click "Add Marketplace"
+# Enter: my-claude-plugins
+```
+
+**The marketplace is now registered!** Claude Code will automatically scan it for plugins.
+
+---
+
+## Creating a Plugin in Your Custom Marketplace
+
+### Step 1: Create Plugin Directory
+
+```bash
+cd C:\Users\antho\.claude\plugins\marketplaces\my-claude-plugins
+mkdir your-plugin-name
+cd your-plugin-name
+```
+
+### Step 2: Create Plugin Configuration Directory
+
+```bash
+mkdir .claude-plugin
+```
+
+### Step 3: Create Plugin Manifest
+
+Create `.claude-plugin\plugin.json`:
+
+```json
+{
+  "name": "your-plugin-name",
+  "description": "What your plugin does",
+  "version": "1.0.0",
+  "author": {
+    "name": "Anthony"
+  }
+}
+```
+
+**Plugin Manifest Fields:**
+- `name`: Plugin identifier (must match directory name, hyphen-case)
+- `description`: Brief description (1-2 sentences)
+- `version`: Semantic version (e.g., "1.0.0")
+- `author.name`: Your name
+
+### Step 4: Create Plugin Directory Structure
+
+```bash
+mkdir agents
+mkdir commands
+mkdir skills     # Optional
+```
+
+### Step 5: Add Plugin Content
+
+Create your agents, commands, and skills:
+- `agents\agent-name.md` - Agent definitions
+- `commands\command-name.md` - Slash command workflows
+- `skills\skill-name\SKILL.md` - Auto-activating skills
+
+### Step 6: Register Plugin in Marketplace
+
+Edit `C:\Users\antho\.claude\plugins\marketplaces\my-claude-plugins\.claude-plugin\marketplace.json`:
+
+```json
+{
+  "name": "my-custom-plugins",
+  "owner": {
+    "name": "Anthony"
+  },
+  "plugins": [
+    {
+      "name": "claude-code-expert",
+      "source": "./claude-code-expert",
+      "description": "Claude Code expertise, routing help, and best practices"
+    },
+    {
+      "name": "your-plugin-name",
+      "source": "./your-plugin-name",
+      "description": "Your plugin description here"
+    }
+  ]
+}
+```
+
+**Add your new plugin to the `plugins` array.**
+
+### Step 7: Verify Structure
+
+Your marketplace should look like this:
+
+```
+C:\Users\antho\.claude\plugins\marketplaces\my-claude-plugins\
+├── .claude-plugin\
+│   └── marketplace.json          # Marketplace manifest
+├── claude-code-expert\           # First plugin
+│   ├── .claude-plugin\
+│   │   └── plugin.json
+│   ├── agents\
+│   ├── commands\
+│   └── skills\
+├── your-plugin-name\             # Your new plugin
+│   ├── .claude-plugin\
+│   │   └── plugin.json
+│   ├── agents\
+│   ├── commands\
+│   └── skills\
+└── README.md                     # Optional documentation
+```
+
+### Step 8: Test Plugin Discovery
+
+Restart Claude Code or run:
+```bash
+/plugins
+```
+
+Your plugin should appear in the list!
 
 ---
 
